@@ -43,7 +43,7 @@ class PolosController {
       return res.status(500).send({ error: "Internal server error." });
     }
   }
-
+  
   async delete(req, res) {
     try {
       const { id } = req.params;
