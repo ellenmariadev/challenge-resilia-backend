@@ -1,6 +1,6 @@
-import Models from "../models/Models.js";
+import Polo from "../models/Polo.js";
 
-const PoloModel = new Models("polos");
+const PoloModel = new Polo("polos");
 
 class PolosController {
   async getAll(req, res) {

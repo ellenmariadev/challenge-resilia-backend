@@ -1,6 +1,6 @@
 import { pool } from "../config/database.js";
 
-class Models {
+class Polo {
   constructor(table) {
     this.pool = pool;
     this.table = table;
@@ -35,4 +35,4 @@ class Models {
   }
 }
 
-export default Models;
+export default Polo;
