@@ -9,7 +9,6 @@ class AlunosController {
       const { rows } = await AlunoModel.select("matricula, polo_id");
       return res.status(200).send(rows);
     } catch (err) {
-      console.log(err);
       return res.status(400).send(err);
     }
   }
@@ -18,14 +17,12 @@ class AlunosController {
     try {
       const { polo_id } = req.params;
       const polo = await AlunoModel.selectByPoloId(polo_id);
-      console.log(polo);
 
       if (!polo.rows[0]) {
         return res.status(404).send();
       }
       return res.status(200).send(polo.rows);
     } catch (err) {
-      console.log(err);
       return res.status(500).send({ error: "Internal server error." });
     }
   }
@@ -50,7 +47,6 @@ class AlunosController {
         .status(201)
         .send({ result: updatePolo.rows, message: transfer });
     } catch (err) {
-      console.log(err);
       return res.status(500).send({ error: "Internal server error." });
     }
   }
@@ -63,7 +59,6 @@ class AlunosController {
 
     try {
       const aluno = await AlunoModel.selectByMatricula(matricula);
-      console.log(aluno.rows[0]);
 
       if (aluno.rows[0]) {
         return res.status(404).send();
@@ -72,7 +67,6 @@ class AlunosController {
       const data = await AlunoModel.insert(columns, values);
       return res.status(201).send(data.rows);
     } catch (err) {
-      console.log(err);
       return res.status(500).send({ error: "Internal server error." });
     }
   }
@@ -82,7 +76,6 @@ class AlunosController {
       const { matricula } = req.params;
 
       const aluno = await AlunoModel.selectByMatricula(matricula);
-      console.log(aluno.rows[0]);
 
       if (!aluno.rows[0]) {
         return res.status(404).send();
@@ -91,7 +84,6 @@ class AlunosController {
       const deleteAluno = await AlunoModel.delete(matricula);
       return res.status(200).send(deleteAluno.rows);
     } catch (err) {
-      console.log(err);
       return res.status(500).send({ error: "Internal server error." });
     }
   }
