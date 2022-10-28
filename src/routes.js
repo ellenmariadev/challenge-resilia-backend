@@ -4,6 +4,7 @@ import AlunosController from "./controllers/AlunosController.js";
 
 const routes = new Router();
 
+routes.get("/", (req, res) => {res.send({API: "Challenge Resilia 2022 by @ellemariadev"})})
 routes.get("/polos/:id", PolosController.getById);
 routes.post("/polos", PolosController.create);
 routes.delete("/polos/:id", PolosController.delete);
